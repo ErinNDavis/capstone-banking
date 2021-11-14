@@ -11,12 +11,6 @@ async function changePassword(credentials){
       body: JSON.stringify(credentials)
     })
       .then(data => data.json())
-
-      if (result.status === 'ok') {
-        alert('You have successfully updated your password');
-      } else {
-        alert(result.error)
-      }
 }
 
 
@@ -39,10 +33,12 @@ export default function ChangePwd(){
             alert("Entered Passwords do not match");
         }
         else {
+            alert("successfully changed password");
             changePassword({ 
                 email,
                 password
             });
+            window.location.reload();
         }  
     }
 

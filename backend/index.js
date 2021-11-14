@@ -17,7 +17,8 @@ app.use(cors());
 
 //connect to mongodb-----------------------------------------------------------
 
-const dbURI = "mongodb://localhost:27017/badbank";
+//const dbURI = "mongodb://localhost:27017/badbank";
+const dbURI = "mongodb+srv://Erin:secret001@cluster0.pj6pv.mongodb.net/badbank?retryWrites=true&w=majority"
 app.use(express.json());
 
 mongoose.connect(dbURI, {
@@ -28,7 +29,7 @@ mongoose.connect(dbURI, {
 const db = mongoose.connection;
 
 db.on("error", (err)=>{console.error(err)});
-db.once("open", () => {console.log("DB started successfully")});
+db.once("open", () => {console.log("atlas DB started successfully")});
 
 app.use(bodyParser.json())
 
